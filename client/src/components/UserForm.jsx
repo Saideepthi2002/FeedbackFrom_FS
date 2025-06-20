@@ -5,7 +5,7 @@ const API = import.meta.env.VITE_API_URL;
 
 const UseForm = () => {
   const {register,handleSubmit,reset,formState:{errors}}=useForm()
-  console.log(API)
+  console.log('This is api',API)
 
   const onsubmit=async(data)=>{
     // post data
