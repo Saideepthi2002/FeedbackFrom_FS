@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios"
+const API = import.meta.env.VITE_API_URL;
 
 const UseForm = () => {
   const {register,handleSubmit,reset,formState:{errors}}=useForm()
@@ -8,7 +9,7 @@ const UseForm = () => {
   const onsubmit=async(data)=>{
     // post data
     try{
-      const response=await axios.post('http://localhost:3000/userData',data)
+      const response=await axios.post(`${API}/userData`,data)
       alert('Feedback SUbmitted Sucessfully')
       console.log('Server response:',response.status,response.data);
       reset()
@@ -19,7 +20,7 @@ const UseForm = () => {
     }
     // get data
     try{
-      const res =await axios.get('http://localhost:3000/userData')
+      const res =await axios.get(`${API}`)
       console.log('this is feedback data',res.data)
     }
     catch(error){
